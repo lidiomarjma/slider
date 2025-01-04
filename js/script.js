@@ -13,15 +13,16 @@ function goPrev() {
 }
 function goNext() {
     currentSlider++;
-    if (currentSlider > (totalSliders)) {
+    if (currentSlider > (totalSliders - 1)) {
         currentSlider = 0;
     }
     updateMargin();
 }
 
 function updateMargin() {
-    let newMargin = (currentSlider * document.body.clientWidth);
-    document.querySelector('.slider--width').style.marginLeft = `${newMargin}px`; 
+    let sliderItemWidth = document.querySelector('.slider--item').clientWidth;
+    let newMargin = (currentSlider * sliderItemWidth);
+    document.querySelector('.slider--width').style.marginLeft = `-${newMargin}px`; 
 }
 
-setInterval(goNext, 2000);
+setInterval(goNext, 4000);
